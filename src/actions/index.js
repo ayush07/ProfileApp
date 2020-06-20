@@ -12,15 +12,14 @@ export const fetchData = () => {
 };
 export const updateData = (input) => {
   return async (dispatch) => {
-    console.log(input);
-    const res = await axios.put(
+    await axios.put(
       'https://5ede0f2ae36dd000166c7e8b.mockapi.io/user/1',
       input
     );
 
     dispatch({
       type: 'UPDATE_DATA',
-      payload: res.data,
+      payload: { name: input.name, email: input.email },
     });
   };
 };
